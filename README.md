@@ -1,94 +1,43 @@
-# 🚗 Parking Space Detection AI
+# Parking Space Detection AI
 
-## 📌 Project Overview
+## Description
+Parking Space Detection AI detects vacant and occupied parking spaces from parking lot images using a YOLOv8 object detection model. It helps drivers and parking lot managers monitor parking availability in real time.
 
-Parking Space Detection AI is a Deep Learning project developed using **YOLOv8** and **Streamlit**.
+## Live Demo
+https://share.streamlit.io/aneesofficial/parking-space-detection-ai
 
-The system detects parking spaces from parking lot images using a trained AI model.
-
----
-
-## 🚀 Features
-
-* Parking Space Detection
-* Detection Statistics
-* Detection Table
-* Download Detection Result
-* Professional Streamlit Dashboard
-* YOLOv8 Deep Learning Model
-* Responsive User Interface
-
----
-
-## 🛠 Technologies Used
-
+## Tech Stack
 * Python
 * Streamlit
-* Ultralytics YOLOv8
+* YOLOv8 (Ultralytics)
 * OpenCV
 * Pillow
-* Pandas
 * NumPy
+* Pandas
 
----
+## Getting Started
 
-## 📂 Project Structure
-
-```
-Parking Space Detection AI
-│
-├── app.py
-├── best.pt
-├── requirements.txt
-├── README.md
-├── uploads/
-├── outputs/
-└── assets/
+### 1. Clone the repository
+```bash
+git clone https://github.com/aneesofficial/Parking-Space-Detection-AI.git
+cd "Parking Space Detection AI"
 ```
 
----
-
-## ▶️ Installation
-
+### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## ▶️ Run Project
-
+### 3. Run the application
 ```bash
 streamlit run app.py
 ```
 
----
+## Environment Variables
+This project does not require any environment variables or .env file to run.
 
-## 📊 Model
+## Screenshots
 
-* YOLOv8 Object Detection
-* Dataset: Parking Space Dataset
-* Class: Parking Space
+![Parking Space Detection Dashboard](screenshots/screenshot1.png)
 
----
-
-## 👨‍💻 Developer
-
-Anees Ur Rehman
-
----
-
-## ⭐ Future Improvements
-
-* Live Camera Detection
-* Video Detection
-* Parking Occupancy Counter
-* Free Space Counter
-* Cloud Deployment
-* Mobile Responsive Dashboard
-
----
-
-## 📄 License
-
-This project is created for educational and portfolio purposes.
+![Parking Space Detection Results](screenshots/screenshot2.png)

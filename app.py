@@ -9,8 +9,7 @@ import os
 # ===========================
 
 st.set_page_config(
-    page_title="Parking Space Detection AI",
-    page_icon="🚗",
+    page_title="Parking Space Detection",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -19,37 +18,21 @@ st.set_page_config(
 # Header
 # ===========================
 
-st.title("🚗 Parking Space Detection AI")
+st.title("Parking Space Detection")
 
 st.write("Welcome to the AI-powered Parking Space Detection System.")
 
-st.success("Project Loaded Successfully ✅")
+st.success("Project Loaded Successfully")
 
 # ===========================
 # Sidebar
 # ===========================
 
-st.sidebar.title("🚗 Parking AI")
+st.sidebar.title("Parking")
 
 st.sidebar.markdown("---")
 
-st.sidebar.success("🟢 AI Model Loaded")
-
-st.sidebar.markdown("## 📌 Project Information")
-
-st.sidebar.info("""
-**Model :** YOLOv8
-
-**Framework :** Streamlit
-
-**Language :** Python
-
-**Detection :** Parking Spaces
-""")
-
-st.sidebar.markdown("---")
-
-st.sidebar.write("👨‍💻 Developed by")
+st.sidebar.write("Developed by")
 
 st.sidebar.write("**Anees Ur Rehman**")
 
@@ -58,11 +41,8 @@ st.sidebar.write("**Anees Ur Rehman**")
 # ===========================
 
 st.markdown("""
-# 🚗 Parking Space Detection AI
+# Parking Space Detection
 
-### AI Powered Parking Space Detection System
-
-Detect parking spaces using a trained YOLOv8 Deep Learning model.
 """)
 
 # ===========================
@@ -72,13 +52,13 @@ Detect parking spaces using a trained YOLOv8 Deep Learning model.
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.info("🧠 Model\n\nYOLOv8")
+    st.info("Model\n\nYOLOv8")
 
 with col2:
-    st.success("⚡ Speed\n\nReal-Time Detection")
+    st.success("Speed\n\nReal-Time Detection")
 
 with col3:
-    st.warning("🎯 Accuracy\n\nHigh Precision")
+    st.warning("Accuracy\n\nHigh Precision")
 
 st.divider()
 
@@ -86,7 +66,7 @@ st.divider()
 # Instructions
 # ===========================
 
-st.subheader("📋 Instructions")
+st.subheader("Instructions")
 
 st.markdown("""
 1. Upload a parking lot image.
@@ -105,13 +85,11 @@ st.divider()
 # ===========================
 
 uploaded_file = st.file_uploader(
-    "📤 Upload Parking Image",
+    "Upload Parking Image",
     type=["jpg", "jpeg", "png"]
 )
 
 st.divider()
-
-st.caption("© 2026 Parking Space Detection AI | Developed by Anees Ur Rehman")
 
 # ===========================
 # Load YOLO Model
@@ -171,9 +149,9 @@ if uploaded_file is not None:
 
         st.image(image, use_container_width=True)
 
-    if st.button("🚀 Detect Parking Spaces", use_container_width=True):
+    if st.button("Detect Parking Spaces", use_container_width=True):
 
-        with st.spinner("🔍 Detecting Parking Spaces..."):
+        with st.spinner("Detecting Parking Spaces..."):
 
             results = detect_parking_spaces(image)
 
@@ -183,7 +161,7 @@ if uploaded_file is not None:
 
         with col2:
 
-            st.subheader("🤖 Detection Result")
+            st.subheader("Detection Result")
 
             st.image(
                 result_image,
@@ -191,9 +169,9 @@ if uploaded_file is not None:
                 use_container_width=True
             )
 
-        st.success("✅ Detection Completed Successfully")
+        st.success("Detection Completed Successfully")
 
-        st.info(f"🚗 Total Parking Spaces Detected: {detections}")
+        st.info(f"Total Parking Spaces Detected: {detections}")
 
 # ===========================
 # Detection Statistics
@@ -201,7 +179,7 @@ if uploaded_file is not None:
 
 if uploaded_file is not None:
 
-    if st.button("📊 Show Detection Statistics", use_container_width=True):
+    if st.button("Show Detection Statistics", use_container_width=True):
 
         results = detect_parking_spaces(image)
 
@@ -228,31 +206,31 @@ if uploaded_file is not None:
 
         st.divider()
 
-        st.subheader("📊 Detection Statistics")
+        st.subheader("Detection Statistics")
 
         c1, c2, c3, c4 = st.columns(4)
 
         with c1:
             st.metric(
-                "🚗 Parking Spaces",
+                "Parking Spaces",
                 detections
             )
 
         with c2:
             st.metric(
-                "📈 Avg Confidence",
+                "Avg Confidence",
                 f"{avg_conf*100:.1f}%"
             )
 
         with c3:
             st.metric(
-                "🔥 Highest",
+                "Highest",
                 f"{max_conf*100:.1f}%"
             )
 
         with c4:
             st.metric(
-                "📉 Lowest",
+                "Lowest",
                 f"{min_conf*100:.1f}%"
             )
 
@@ -264,7 +242,7 @@ import pandas as pd
 
 if uploaded_file is not None:
 
-    if st.button("📋 Show Detection Table", use_container_width=True):
+    if st.button("Show Detection Table", use_container_width=True):
 
         results = detect_parking_spaces(image)
 
@@ -286,7 +264,7 @@ if uploaded_file is not None:
 
             st.divider()
 
-            st.subheader("📋 Detection Table")
+            st.subheader("Detection Table")
 
             df = pd.DataFrame(data)
 
@@ -304,7 +282,7 @@ import cv2
 
 if uploaded_file is not None:
 
-    if st.button("💾 Download Detection Result", use_container_width=True):
+    if st.button("Download Detection Result", use_container_width=True):
 
         results = detect_parking_spaces(image)
 
@@ -317,14 +295,14 @@ if uploaded_file is not None:
         with open(output_file, "rb") as file:
 
             st.download_button(
-                label="📥 Click Here To Download",
+                label="Click Here To Download",
                 data=file,
                 file_name="Parking_Detection_Result.jpg",
                 mime="image/jpeg",
                 use_container_width=True
             )
 
-        st.success("✅ Detection Image Ready For Download")
+        st.success("Detection Image Ready For Download")
 
 # ===========================
 # Professional Footer
@@ -332,20 +310,20 @@ if uploaded_file is not None:
 
 st.divider()
 
-st.markdown("## ℹ️ About This Project")
+st.markdown("## About This Project")
 
 st.info("""
 This AI system detects parking spaces using a YOLOv8 Deep Learning model.
 
 ### Features
 
-✅ Parking Space Detection
+Parking Space Detection
 
-✅ Detection Statistics
+Detection Statistics
 
-✅ Detection Table
+Detection Table
 
-✅ Download Detection Result
+Download Detection Result
 
 ### Technologies Used
 
@@ -367,9 +345,8 @@ st.divider()
 st.markdown(
     """
     <center>
-        <h4>🚗 Parking Space Detection AI</h4>
+        <h4>Parking Space Detection </h4>
         <p>Developed by <b>Anees Ur Rehman</b></p>
-        <p>© 2026 All Rights Reserved</p>
     </center>
     """,
     unsafe_allow_html=True
@@ -381,7 +358,7 @@ st.markdown(
 
 st.divider()
 
-with st.expander("🧠 Model Information"):
+with st.expander("Model Information"):
 
     st.markdown("""
 ### YOLOv8 Model
@@ -407,7 +384,7 @@ with st.expander("🧠 Model Information"):
 
 st.divider()
 
-with st.expander("📂 Project Folder Structure"):
+with st.expander("Project Folder Structure"):
 
     st.code("""
 Parking Space Detection AI
@@ -422,24 +399,24 @@ Parking Space Detection AI
 
 st.divider()
 
-with st.expander("🚀 Future Improvements"):
+with st.expander("Future Improvements"):
 
     st.markdown("""
-✅ Live Camera Detection
+Live Camera Detection
 
-✅ Video Detection
+Video Detection
 
-✅ Parking Occupancy Counter
+Parking Occupancy Counter
 
-✅ Free Parking Counter
+Free Parking Counter
 
-✅ Occupied Parking Counter
+Occupied Parking Counter
 
-✅ Deploy on Streamlit Cloud
+Deploy on Streamlit Cloud
 
-✅ Deploy on Hugging Face
+Deploy on Hugging Face
 
-✅ Mobile Responsive UI
+Mobile Responsive UI
 """)
 
 # ===========================
@@ -448,37 +425,37 @@ with st.expander("🚀 Future Improvements"):
 
 st.divider()
 
-st.subheader("📊 AI Dashboard")
+st.subheader("AI Dashboard")
 
 d1, d2, d3, d4 = st.columns(4)
 
 with d1:
     st.metric(
-        "🧠 Model",
+        "Model",
         "YOLOv8"
     )
 
 with d2:
     st.metric(
-        "📂 Dataset",
+        "Dataset",
         "Parking"
     )
 
 with d3:
     st.metric(
-        "🎯 Classes",
+        "Classes",
         "1"
     )
 
 with d4:
     st.metric(
-        "🟢 Status",
+        "Status",
         "Ready"
     )
 
 st.divider()
 
-st.success("🎉 Parking Space Detection AI is Ready for Deployment!")
+st.success("Parking Space Detection AI is Ready for Deployment!")
 
 st.balloons()
 
